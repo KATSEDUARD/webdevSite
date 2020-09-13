@@ -1,0 +1,62 @@
+#metal-description {
+    font-size: 17px;
+    font-family: 'Cuprum', sans-serif;
+    margin-top: 15px;
+}
+
+#info-wrapper {
+    /* margin-top: 150px; */
+    opacity: 0;
+    transition: all ease 0.3s;
+}
+
+#left-block {
+    padding: 0 !important;
+    height: 100vh;
+}
+
+#right-block {
+    height: 100vh;
+}
+
+body,
+html {
+    margin: 0;
+    font: bold 14px/1.4 'Open Sans', arial, sans-serif;
+    background: #000;
+}
+
+#menu a {
+    cursor: pointer;
+    color: #000;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+}
+
+#menu a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #000;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+#menu a:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+#content-wrapper {
+    margin-top: 20%;
+    padding-left: 47px;
+    padding-right: 47px;
+}
