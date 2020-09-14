@@ -8,11 +8,7 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/style.css">
-<<<<<<< HEAD
-  <link rel="icon" href="images/favicon.png" type="image/png">
-=======
   <link rel="icon" href="images/common/common_logo.png" type="image/png">
->>>>>>> 9ae4b7832ad4a7718ec9f8326251649488422026
   <link href="https://fonts.googleapis.com/css2?family=Cuprum&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -29,16 +25,23 @@
         <div class="menu" id="menu">
           <div class="row">
             <div class="link-item col-lg-3 text-center">
-              <a href="#!">HOME</a>
+              <a class="item-a" href="#!">HOME</a>
             </div>
             <div class="link-item col-lg-3 text-center">
-              <a href="#!">BANDS</a>
+              <a href="#!" class="dropdown-toggle item-a" id="dropdownMenuButton" data-toggle="dropdown">BANDS</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">IRON MAIDEN</a>
+                <a class="dropdown-item" href="#">METALLICA</a>
+                <a class="dropdown-item" href="#">MEGADETH</a>
+                <a class="dropdown-item" href="#">SLAYER</a>
+                <a class="dropdown-item" href="#">RAMMSTEIN</a>
+              </div>
             </div>
             <div class="link-item col-lg-3 text-center">
-              <a href="#!">GALLERY</a>
+              <a class="item-a" href="#!">GALLERY</a>
             </div>
             <div class="link-item col-lg-3 text-center">
-              <a href="#!">INFO</a>
+              <a class="item-a" href="#!">INFO</a>
             </div>
           </div>
         </div>
@@ -46,27 +49,25 @@
           <h3 style="font-weight: 300; font-family: 'Cuprum', sans-serif;">ЛАСКАВО ПРОСИМО</h3>
           <p style="margin-top: 15px; font-size: 17px; font-family: 'Cuprum', sans-serif;">Метал – це музичний жанр, різновид року, що почав формуватися у 70-х роках
             минулого століття.</p>
-          <button type="button" @click="showInfo" class="btn btn-secondary">{{ status }}</button>
+          <button type="button" @click="showInfo" class="btn btn-secondary">{{status}}</button>
           <div id="info-wrapper">
-            <p id="metal-description">Характерною рисою цього жанру є потужність та тяжкість звучання електрогітари, що
-              відрізняло його від попередників. І хоч точку переходу від року до металу неможливо визначити так само, як
-              і перехід з помаранчевого кольору до червоного, деякі тенденції цього жанру сильно вирізняються.
-            <br>
+            <transition name="fade">
+              <p v-if="show" id="metal-description">Характерною рисою цього жанру є потужність та тяжкість звучання електрогітари, що
+                відрізняло його від попередників. І хоч точку переходу від року до металу неможливо визначити так само, як
+                і перехід з помаранчевого кольору до червоного, деякі тенденції цього жанру сильно вирізняються.
+              <br>
+            </transition>
           <br>
         <a target="blank" href="https://uk.wikipedia.org/wiki/%D0%92%D0%B0%D0%B6%D0%BA%D0%B8%D0%B9_%D0%BC%D0%B5%D1%82%D0%B0%D0%BB_(%D0%BC%D1%83%D0%B7%D0%B8%D0%BA%D0%B0)">Читати на Вікіпедії</a></p>
+          </div>
+          <div id="links-social-media" class="links-social-media">
+            <a target="blank" href="https://www.loudersound.com/metal-hammer">METAL HAMMER</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- <div class="container" id="app">
-        <button type="button" @click="showInfo" class="btn btn-info">Info</button>
-        <div id="wrapper">
-            <p id="metal-description">Метал – це музичний жанр, різновид року, що почав формуватися у 70-х роках минулого століття. Характерною рисою цього жанру є потужність та тяжкість звучання електрогітари, що відрізняло його від попередників. І хоч точку переходу від року до металу неможливо визначити так само, як і перехід з помаранчевого кольору до червоного, деякі тенденції цього жанру сильно вирізняються.</p>
-        </div>
-
-    </div> -->
 
 
 
