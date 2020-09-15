@@ -24,8 +24,25 @@ html {
     background: #000;
 }
 
+.carousel-caption h1 {
+    font-family: maiden;
+}
+
 #menu .item-a {
     font-size: 14px;
+    cursor: pointer;
+    color: #000;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+}
+
+#maiden_menu .item-a {
+    font-family: maiden;
+    font-size: 20px;
     cursor: pointer;
     color: #000;
     text-transform: uppercase;
@@ -62,7 +79,25 @@ html {
     width: 0;
 }
 
+#maiden_menu .item-a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #000;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
 #menu .item-a:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+#maiden_menu .item-a:hover:after {
     width: 100%;
     left: 0;
 }
@@ -81,12 +116,12 @@ html {
 
 #wrapper_maiden p {
     font-size: 20px;
-    font-family: 'Cuprum', sans-serif;
+    font-family: 'Cuprum', sans-serif; 
 }
 
-#wrapper_maiden h1, h2, h3, h4 {
-    font: 300 !important;
-    font-family: 'Cuprum', sans-serif !important;
+@font-face {
+    font-family: maiden;
+    src: url(../font/maiden.ttf);
 }
 
 #links-social-media {
