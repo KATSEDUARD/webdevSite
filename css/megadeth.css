@@ -1,0 +1,16 @@
+@font-face {
+    font-family: megadeth;
+    src: url(../font/megadeth.ttf);
+}
+
+.carousel-caption h1 {
+    font-family: megadeth;
+}
+
+.menu .item-a {
+    font-family: megadeth;
+}
+
+#content-wrapper {
+    margin-top: 5%;
+}
