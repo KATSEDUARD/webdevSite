@@ -25,6 +25,7 @@ html {
 }
 
 #menu .item-a {
+    font-size: 14px;
     cursor: pointer;
     color: #000;
     text-transform: uppercase;
@@ -35,9 +36,17 @@ html {
     position: relative;
 }
 
+#carousel img{
+    height: 100vh;
+}
+
 .dropdown-toggle::before, 
 .dropdown-toggle::after {
     border: none !important;
+}
+
+.dropdown-menu .dropdown-item {
+    font-size: 17px !important;
 }
 
 #menu .item-a:after {
@@ -64,7 +73,24 @@ html {
     padding-right: 47px;
 }
 
+#wrapper_maiden {
+    margin-top: 5%;
+    padding-left: 47px;
+    padding-right: 47px;
+}
+
+#wrapper_maiden p {
+    font-size: 20px;
+    font-family: 'Cuprum', sans-serif;
+}
+
+#wrapper_maiden h1, h2, h3, h4 {
+    font: 300 !important;
+    font-family: 'Cuprum', sans-serif !important;
+}
+
 #links-social-media {
+    font-size: 17px;
     /* margin-top: 120px; */
     position: absolute;
     bottom: 15px;
