@@ -24,8 +24,12 @@ html {
     background: #000;
 }
 
-.carousel-caption h1 {
+.carousel-caption maiden_h {
     font-family: maiden;
+}
+
+.carousel-caption megadeth_h {
+    font-family: megadeth;
 }
 
 #menu .item-a {
@@ -53,7 +57,20 @@ html {
     position: relative;
 }
 
-#carousel img{
+#megadeth_menu .item-a {
+    font-family: megadeth;
+    font-size: 20px;
+    cursor: pointer;
+    color: #000;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+}
+
+#carousel img {
     height: 100vh;
 }
 
@@ -92,12 +109,30 @@ html {
     width: 0;
 }
 
+#megadeth_menu .item-a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #000;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
 #menu .item-a:hover:after {
     width: 100%;
     left: 0;
 }
 
 #maiden_menu .item-a:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+#megadeth_menu .item-a:hover:after {
     width: 100%;
     left: 0;
 }
@@ -114,7 +149,18 @@ html {
     padding-right: 47px;
 }
 
+#wrapper_megadeth {
+    margin-top: 5%;
+    padding-left: 47px;
+    padding-right: 47px;
+}
+
 #wrapper_maiden p {
+    font-size: 20px;
+    font-family: 'Cuprum', sans-serif; 
+}
+
+#wrapper_megadeth p {
     font-size: 20px;
     font-family: 'Cuprum', sans-serif; 
 }
@@ -124,9 +170,13 @@ html {
     src: url(../font/maiden.ttf);
 }
 
+@font-face {
+    font-family: megadeth;
+    src: url(../font/megadeth.ttf);
+}
+
 #links-social-media {
     font-size: 17px;
-    /* margin-top: 120px; */
     position: absolute;
     bottom: 15px;
 }
