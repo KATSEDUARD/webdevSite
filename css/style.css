@@ -124,6 +124,11 @@ html {
     src: url(../font/maiden.ttf);
 }
 
+@font-face {
+    font-family: metallica;
+    src: url(../font/metallica.TTF);
+}
+
 #links-social-media {
     font-size: 17px;
     /* margin-top: 120px; */
