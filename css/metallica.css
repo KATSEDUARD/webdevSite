@@ -1,0 +1,18 @@
+@font-face {
+    font-family: metallica;
+    src: url(../font/metallica.ttf);
+}
+
+.carousel-caption h1 {
+    font-family: metallica;
+    font-size: 40px;
+}
+
+.menu .item-a {
+    font-family: metallica;
+    font-size: 40px !important;
+}
+
+#content-wrapper {
+    margin-top: 5%;
+}

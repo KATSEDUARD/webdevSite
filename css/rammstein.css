@@ -1,0 +1,16 @@
+@font-face {
+    font-family: rammstein;
+    src: url(../font/rammstein.ttf);
+}
+
+.carousel-caption h1 {
+    font-family: rammstein;
+}
+
+.menu .item-a {
+    font-family: rammstein;
+}
+
+#content-wrapper {
+    margin-top: 5%;
+}

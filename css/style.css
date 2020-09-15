@@ -24,62 +24,23 @@ html {
     background: #000;
 }
 
-.carousel-caption h1 {
-    font-family: maiden;
+p {
+    margin-top: 15px;
+    font-size: 17px;
+    font-family: 'Cuprum', sans-serif;
 }
 
 #menu .item-a {
-    font-size: 14px;
-    cursor: pointer;
-    color: #000;
-    text-transform: uppercase;
-    text-decoration: none;
-    letter-spacing: 0.15em;
-    display: inline-block;
-    padding: 15px 20px;
-    position: relative;
-}
-
-#maiden_menu .item-a {
-    font-family: maiden;
     font-size: 20px;
     cursor: pointer;
     color: #000;
-    text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 0.15em;
     display: inline-block;
     padding: 15px 20px;
     position: relative;
 }
-
-#carousel img{
-    height: 100vh;
-}
-
-.dropdown-toggle::before, 
-.dropdown-toggle::after {
-    border: none !important;
-}
-
-.dropdown-menu .dropdown-item {
-    font-size: 17px !important;
-}
-
 #menu .item-a:after {
-    background: none repeat scroll 0 0 transparent;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 2px;
-    left: 50%;
-    position: absolute;
-    background: #000;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    width: 0;
-}
-
-#maiden_menu .item-a:after {
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
     content: "";
@@ -97,9 +58,13 @@ html {
     left: 0;
 }
 
-#maiden_menu .item-a:hover:after {
-    width: 100%;
-    left: 0;
+.dropdown-toggle::before, 
+.dropdown-toggle::after {
+    border: none !important;
+}
+
+.dropdown-menu .dropdown-item {
+    font-size: 17px !important;
 }
 
 #content-wrapper {
@@ -108,30 +73,8 @@ html {
     padding-right: 47px;
 }
 
-#wrapper_maiden {
-    margin-top: 5%;
-    padding-left: 47px;
-    padding-right: 47px;
-}
-
-#wrapper_maiden p {
-    font-size: 20px;
-    font-family: 'Cuprum', sans-serif; 
-}
-
-@font-face {
-    font-family: maiden;
-    src: url(../font/maiden.ttf);
-}
-
-@font-face {
-    font-family: metallica;
-    src: url(../font/metallica.TTF);
-}
-
 #links-social-media {
     font-size: 17px;
-    /* margin-top: 120px; */
     position: absolute;
     bottom: 15px;
 }
@@ -139,14 +82,10 @@ html {
 .fade-enter-active, .fade-leave-active {
     transition: opacity .5s;
   }
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  .fade-enter, .fade-leave-to {
     opacity: 0;
   }
 
-
-  @media only screen and (max-width: 1366px) {
-    #wrapper_maiden p {
-        font-size: 15px;
-        font-family: 'Cuprum', sans-serif;
-    }
-  }
+  #carousel img {
+      height: 100vh;
+}

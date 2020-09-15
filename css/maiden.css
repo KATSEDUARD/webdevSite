@@ -1,0 +1,16 @@
+@font-face {
+    font-family: maiden;
+    src: url(../font/maiden.ttf);
+}
+
+.carousel-caption h1 {
+    font-family: maiden;
+}
+
+.menu .item-a {
+    font-family: maiden;
+}
+
+#content-wrapper {
+    margin-top: 5%;
+}
