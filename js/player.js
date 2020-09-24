@@ -11,7 +11,7 @@ var songs = {
             'audio/metallica/the_judas_kiss.mp3', 'audio/metallica/atlas_rise.mp3'],
     megadeth:
         ['audio/megadeth/skull_beneath_the_skin.mp3', 'audio/megadeth/peace_sells.mp3', 'audio/megadeth/in_my_darkest_hour.mp3',
-            'audio/megadeth/holy_wars.mp3', 'audio/megadeth/symphony_of_destruction', 'audio/megadeth/youthanasia.mp3', 'audio/megadeth/she-wolf.mp3',
+            'audio/megadeth/holy_wars.mp3', 'audio/megadeth/symphony_of_destruction.mp3', 'audio/megadeth/youthanasia.mp3', 'audio/megadeth/she-wolf.mp3',
             'audio/megadeth/prince_of_darkness.mp3', 'audio/megadeth/dread_and_the_fugitive_mind.mp3', 'audio/megadeth/something_that_im_not.mp3',
             'audio/megadeth/never_walk_alone.mp3', 'audio/megadeth/head_crusher.mp3', 'audio/megadeth/sudden_death.mp3', 'audio/megadeth/super_collider.mp3',
             'audio/megadeth/the_threat_is_real.mp3'],
@@ -22,23 +22,22 @@ var songs = {
 
 var path = location.href.split("/").slice(-1).join('').split('.').slice(0, 1).join('');
 
-var i;
+var song = new Audio;
 
-function getId() {
-    $('.fragment').on('click', function (e) {
-        i = e.target.getAttribute("data-album");
-    });
-    return Number(i);
-}
+$('.fragment').on('click', function (e) {
+    song.pause();
+    var i = e.target.getAttribute("data-album");
+    song = new Audio(songs[path][i]);
+    song.play();
+    $('#play').html('<i class="fas fa-pause"></i>');
+});
 
 play = $('#play');
 mute = $('#mute');
 close = $('#close');
-song = new Audio(songs[path][getId()]);
 var old_vol = 0;
 
 play.on('click', function (e) {
-    song = new Audio(songs[path][getId()]);
     if (song.paused === false) {
         song.pause();
         $(this).html('<i class="fas fa-play"></i>');
@@ -51,14 +50,12 @@ play.on('click', function (e) {
 
 mute.on('click', function (e) {
     if (song.volume !== 0) {
-        console.log('IF');
         old_vol = $('#volume').val() / 100;
         song.volume = 0;
         $("#volume").attr("value", song.volume);
         $(this).html('<i class="fas fa-volume-mute"></i>');
     }
     else {
-        console.log('ELSE');
         song.volume = old_vol;
         $("#volume").attr("value", song.volume * 100);
         $(this).html('<i class="fas fa-volume-up"></i>');
