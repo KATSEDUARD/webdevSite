@@ -26,7 +26,7 @@ html {
 
 p {
     margin-top: 15px;
-    font-size: 17px;
+    font-size: 20px;
     font-family: 'Cuprum', sans-serif;
 }
 
@@ -122,3 +122,44 @@ span{ display: inline-block;}
         font-size: 15px;
     }
 }
+
+.player {
+    display: flex;
+    position: relative;
+    height: 50px;
+    padding: 10px;
+    background-color: black;
+}
+
+.button_p {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin-right: 5px;
+    font-size: 14px;
+    color: white;
+    transition: all ease 0.3s;
+    background: transparent;
+    border: none;
+    outline: none !important;
+}
+
+#slider {
+    outline: none;
+    margin-right: 5px;
+    background: red !important;
+  }
+
+  #slider::-webkit-slider-thumb {
+    border-radius: 100%;
+  }
+
+  #volume {
+    background: red;
+    outline: none;
+    width: 50px;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-right: 5px;
+  }

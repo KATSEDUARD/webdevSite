@@ -30,6 +30,8 @@
                                     <a target="blank"
                                         href="https://www.youtube.com/playlist?list=PLFI4qRuYmesAPPaQ4QS4svY4dPMAeYUQ_"><button
                                             type="button" class="btn btn-light btn-lg">Послухати альбом</button></a>
+                                    <button type="button" data-album="0"
+                                        class="btn btn-light btn-lg fragment">Прослухати фрагмент</button>
                                 </div>
                             </div>
                             <div class="carousel-item">
@@ -39,6 +41,8 @@
                                     <a target="blank"
                                         href="https://www.youtube.com/playlist?list=PLFI4qRuYmesDskxOhiJZbLuixuv-cf6j5"><button
                                             type="button" class="btn btn-light btn-lg">Послухати альбом</button></a>
+                                    <button type="button" data-album="1"
+                                        class="btn btn-light btn-lg fragment">Прослухати фрагмент</button>
                                 </div>
                             </div>
                             <div class="carousel-item">
@@ -48,6 +52,8 @@
                                     <a target="blank"
                                         href="https://www.youtube.com/playlist?list=PLFI4qRuYmesDHUt38LAZQbUigJ3EK7x5o"><button
                                             type="button" class="btn btn-light btn-lg">Послухати альбом</button></a>
+                                    <button type="button" data-album="2"
+                                        class="btn btn-light btn-lg fragment">Прослухати фрагмент</button>
                                 </div>
                             </div>
                             <div class="carousel-item">
@@ -57,6 +63,8 @@
                                     <a target="blank"
                                         href="https://www.youtube.com/playlist?list=PLFI4qRuYmesAxvc2UI7zzYrPeWIKBChx0"><button
                                             type="button" class="btn btn-light btn-lg">Послухати альбом</button></a>
+                                    <button type="button" data-album="3"
+                                        class="btn btn-light btn-lg fragment">Прослухати фрагмент</button>
                                 </div>
                             </div>
                             <div class="carousel-item">
@@ -66,6 +74,8 @@
                                     <a target="blank"
                                         href="https://www.youtube.com/playlist?list=PLFI4qRuYmesBqhcOGpk12QLVmo9QS8bOS"><button
                                             type="button" class="btn btn-light btn-lg">Послухати альбом</button></a>
+                                    <button type="button" data-album="4"
+                                        class="btn btn-light btn-lg fragment">Прослухати фрагмент</button>
                                 </div>
                             </div>
                             <div class="carousel-item">
@@ -75,6 +85,8 @@
                                     <a target="blank"
                                         href="https://www.youtube.com/playlist?list=PLFI4qRuYmesAcD4hDX_W8BTcaJFfx7D30"><button
                                             type="button" class="btn btn-light btn-lg">Послухати альбом</button></a>
+                                    <button type="button" data-album="5"
+                                        class="btn btn-light btn-lg fragment">Прослухати фрагмент</button>
                                 </div>
                             </div>
                             <div class="carousel-item">
@@ -85,6 +97,8 @@
                                         href="https://www.youtube.com/playlist?list=PL5OU5WvFqBTg7WrGHIC5qHyrCbY83cWby"><button
                                             type="button" style="background-color: #000; color: white;"
                                             class="btn btn-light btn-lg">Послухати альбом</button></a>
+                                    <button type="button" data-album="6"
+                                        class="btn btn-light btn-lg fragment">Прослухати фрагмент</button>
                                 </div>
                             </div>
                         </div>
@@ -138,6 +152,13 @@
                         <a target="blank" href="https://uk.wikipedia.org/wiki/Rammstein">Прочитати більше на
                             Вікіпедії</a>
                     </p>
+                    <div class="player">
+                        <button class="button_p" id="play"><i class="fas fa-play"></i></button>
+                        <button class="button_p" id="mute"><i class="fas fa-volume-up"></i></button>
+                        <input type="range" id="volume" value="100" min="0" max="100" step="1" />
+                        <input type="range" disabled id="slider" value="0" min="0" max="" />
+                        <button class="button_p" id="close"><i class="fas fa-times"></i></button>
+                    </div>
                     <div id="links-social-media" class="links-social-media">
                         <a target="blank" href="https://www.loudersound.com/metal-hammer">METAL HAMMER</a>
                         <a target="blank" href="http://rammstein.com/">OFFICIAL SITE</a>
@@ -160,6 +181,8 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/initbt.js"></script>
     <script src="js/fonts.js"></script>
+    <script src="js/player.js"></script>
+    <script src="https://kit.fontawesome.com/5c78eed0ca.js" crossorigin="anonymous"></script>
 
 </body>
 
