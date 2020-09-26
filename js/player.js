@@ -13,7 +13,7 @@ var songs = {
         ['audio/megadeth/skull_beneath_the_skin.mp3', 'audio/megadeth/peace_sells.mp3', 'audio/megadeth/in_my_darkest_hour.mp3',
             'audio/megadeth/holy_wars.mp3', 'audio/megadeth/symphony_of_destruction.mp3', 'audio/megadeth/youthanasia.mp3', 'audio/megadeth/she-wolf.mp3',
             'audio/megadeth/prince_of_darkness.mp3', 'audio/megadeth/dread_and_the_fugitive_mind.mp3', 'audio/megadeth/something_that_im_not.mp3',
-            'audio/megadeth/never_walk_alone.mp3', 'audio/megadeth/head_crusher.mp3', 'audio/megadeth/sudden_death.mp3', 'audio/megadeth/super_collider.mp3',
+            'audio/megadeth/never_walk_alone.mp3', 'audio/megadeth/head_crusher.mp3', 'audio/megadeth/deadly_nightshade.mp3', 'audio/megadeth/super_collider.mp3',
             'audio/megadeth/the_threat_is_real.mp3'],
     rammstein:
         ['audio/rammstein/du_riechst_so_gut.mp3', 'audio/rammstein/engel.mp3', 'audio/rammstein/links_2_3_4.mp3', 'audio/rammstein/reise_reise.mp3',
