@@ -1,10 +1,10 @@
-#metal-description {
+#metal-description { /* descriptor customisation */
     font-size: 17px;
     font-family: 'Cuprum', sans-serif;
     margin-top: 15px;
 }
 
-#info-wrapper {
+#info-wrapper { 
     transition: all ease 0.3s;
 }
 
@@ -30,7 +30,7 @@ p {
     font-family: 'Cuprum', sans-serif;
 }
 
-#menu .item-a {
+#menu .item-a { /* dropdown list */
     font-size: 20px;
     cursor: pointer;
     color: #000;
@@ -53,7 +53,7 @@ p {
     width: 0;
 }
 
-#menu .item-a:hover:after {
+#menu .item-a:hover:after { /* dropdown after hovering */
     width: 100%;
     left: 0;
 }
@@ -73,7 +73,7 @@ p {
     padding-right: 47px;
 }
 
-#links-social-media {
+#links-social-media { 
     font-size: 17px;
     position: absolute;
     bottom: 15px;
@@ -97,6 +97,8 @@ p {
 span{ display: inline-block;} 
 .flip_H{ transform: scale(-1, 1); color:black; }
 
+/* fonts */
+
 @font-face {
     font-family: maiden;
     src: url(../font/maiden.ttf);
@@ -117,11 +119,13 @@ span{ display: inline-block;}
     src: url(../font/rammstein.ttf);
 }
 
-@media only screen and (max-width: 1366px) {
+@media only screen and (max-width: 1366px) { /*  */
     #content-wrapper p {
         font-size: 15px;
     }
 }
+
+/* player properties */
 
 .player {
     display: flex;
