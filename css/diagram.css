@@ -1,0 +1,16 @@
+.card {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card img {
+    height: 380px;
+}
+
+.card p {
+    text-align: center;
+}
+
+body {
+    height: 100vh;
+}
