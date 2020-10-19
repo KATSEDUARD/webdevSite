@@ -1,9 +1,9 @@
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {
-    // The type of chart we want to create
+    // Тип діаграми
     type: 'bar',
 
-    // The data for our dataset
+    // Дані діаграми
     data: {
         labels: ['Iron Maiden', 'Metallica', 'Megadeth', 'Rammstein'],
         datasets: [{
@@ -16,8 +16,5 @@ var chart = new Chart(ctx, {
             ],
             data: [100, 125, 38, 10]
         }]
-    },
-
-    // Configuration options go here
-    options: {}
+    }
 });
