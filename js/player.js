@@ -22,20 +22,27 @@ var songs = {
 
 var path = location.href.split("/").slice(-1).join('').split('.').slice(0, 1).join('');
 
-var song = new Audio;
+var song = new Audio();
 
-$('.fragment').on('click', function (e) {
-    song.pause();
-    var i = e.target.getAttribute("data-album");
-    song = new Audio(songs[path][i]);
-    song.play();
-    $('#play').html('<i class="fas fa-pause"></i>');
-});
-
+var old_vol = 1;
 play = $('#play');
 mute = $('#mute');
 close = $('#close');
-var old_vol = 0;
+
+$('.fragment').on('click', function (e) {
+    song.pause();
+    i = e.target.getAttribute("data-album");
+    song = new Audio(songs[path][i]);
+    song.volume = $('#volume').val() / 100;
+    song.play();
+    $('#play').html('<i class="fas fa-pause"></i>');
+
+    song.addEventListener('timeupdate', function (e) {
+        curtime = parseInt(song.currentTime, 10);
+        $('#slider').attr("value", curtime);
+        $('#slider').attr("max", Math.floor(song.duration));
+    });
+});
 
 play.on('click', function (e) {
     if (song.paused === false) {
@@ -49,33 +56,22 @@ play.on('click', function (e) {
 });
 
 mute.on('click', function (e) {
-    if (song.volume !== 0) {
-        old_vol = $('#volume').val() / 100;
-        song.volume = 0;
-        $("#volume").attr("value", song.volume);
-        $(this).html('<i class="fas fa-volume-mute"></i>');
-    }
-    else {
+    if (song.volume === 0) {
         song.volume = old_vol;
-        $("#volume").attr("value", song.volume * 100);
+        $('#volume').attr("value", song.volume * 100);
         $(this).html('<i class="fas fa-volume-up"></i>');
     }
+    else {
+        old_vol = $('#volume').val() / 100;
+        song.volume = 0;
+        $('#volume').attr("value", 0);
+        $(this).html('<i class="fas fa-volume-mute"></i>');
+    }
 });
 
-$('#close').click(function (e) {
-    song.pause();
-    song.currentTime = 0;
-    $('#play').html('<i class="fas fa-play"></i>');
-});
-
-$("#slider").on("change", function () {
-    song.currentTime = $(this).val();
-    $("#slider").attr("max", song.duration);
-});
-
-$("#volume").on("input", function (e) {
+$('#volume').on("input", function (e) {
     song.volume = $('#volume').val() / 100;
-    $("#volume").attr("value", song.volume * 100);
+    $('#volume').attr("value", song.volume * 100);
     if (song.volume <= 0.3) {
         $('#mute').html('<i class="fas fa-volume-down"></i>');
     }
@@ -84,7 +80,8 @@ $("#volume").on("input", function (e) {
     }
 });
 
-song.addEventListener('timeupdate', function () {
-    curtime = parseInt(song.currentTime, 10);
-    $("#slider").attr("value", curtime);
+$('#close').click(function (e) {
+    song.pause();
+    song.currentTime = 0;
+    $('#play').html('<i class="fas fa-play"></i>');
 });
