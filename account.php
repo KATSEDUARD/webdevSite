@@ -47,24 +47,40 @@
             </div>
           </div>
         </div>
+        <?php
+            $name = $_POST["name"];
+            $surname = $_POST["surname"];
+            $birthday = $_POST["birthday"];
+
+            if(!empty($name) && !empty($surname) && !empty($birthday)) {
+              echo "Вітаємо, ".$name." ".$surname."!<br>";
+              echo "Дата народження: ".$birthday;
+            }
+            else {
+        ?>
         <div id="content-wrapper" class="content-wrapper">
-          <form action="account.html" method="POST">
+          <form action="account.php" method="POST">
             <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              <label for="namefield">Ім'я</label>
+              <input autocomplete="off" type="text" name="name" class="form-control" id="namefield">
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <label for="surnamefield">Прізвище</label>
+              <input autocomplete="off" type="text" name="surname" class="form-control" id="surnamefield">
             </div>
             <div class="form-group form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            <label class="form-check-label" for="datefield">Оберіть свою дату народження</label>
+            <br>
+              <input type="date" name="birthday" class="form-check-input" id="datefield">
+              <br>
+              <br>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Відправити</button>
           </form>
         </div>
+        <?php
+            }
+        ?>
       </div>
     </div>
   </div>
