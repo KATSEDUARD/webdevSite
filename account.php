@@ -62,11 +62,11 @@
           <form action="account.php" method="POST">
             <div class="form-group">
               <label for="namefield">Ім'я</label>
-              <input type="text" name="name" class="form-control" id="namefield">
+              <input autocomplete="off" type="text" name="name" class="form-control" id="namefield">
             </div>
             <div class="form-group">
               <label for="surnamefield">Прізвище</label>
-              <input type="text" name="surname" class="form-control" id="surnamefield">
+              <input autocomplete="off" type="text" name="surname" class="form-control" id="surnamefield">
             </div>
             <div class="form-group form-check">
             <label class="form-check-label" for="datefield">Оберіть свою дату народження</label>

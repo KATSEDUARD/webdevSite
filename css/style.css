@@ -303,3 +303,9 @@ span{ display: inline-block;}
         margin-left: 15px;
     }
   }
+
+  @media screen and (max-width: 1366px){
+    #content-wrapper p {
+      font-size: 14px !important;
+    }
+  }
