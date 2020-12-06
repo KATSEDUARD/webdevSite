@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Admin Panel"
+AuthUserFile D:/openserver/OSPanel/domains/webdevSite/admin/.htpasswd
+Require valid-user
