@@ -111,6 +111,10 @@
             <div class="btn-info btn" style="margin-left: 25px;">Sign In</div>
           </form>
         </div>
+        <?php
+        }
+        include('views/language.php');
+        ?>
       </div>
     </div>
   </div>

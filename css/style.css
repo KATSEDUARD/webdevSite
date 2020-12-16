@@ -156,11 +156,11 @@ span{ display: inline-block;}
     outline: none;
     margin-right: 5px;
     background: red !important;
-  }
+}
 
 #slider::-webkit-slider-thumb {
     border-radius: 100%;
-  }
+}
 
 #volume {
     background: red;
@@ -170,7 +170,7 @@ span{ display: inline-block;}
     -webkit-transition: .2s;
     transition: opacity .2s;
     margin-right: 5px;
-  }
+}
 
 
   
@@ -207,3 +207,12 @@ span{ display: inline-block;}
       font-size: 14px !important;
     }
   }
+
+.lang_panel {
+    background-color: black;
+    padding: 5px;
+    padding-top: 3px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
