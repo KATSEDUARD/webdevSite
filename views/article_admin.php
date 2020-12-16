@@ -15,10 +15,10 @@
 
 <body>
     <div class="container-fluid">
-        <?php if($_GET['action'] == 'edit') { ?>
-        <h1>Редагування статті</h1>
-        <?php } else if($_GET['action'] == 'add') { ?>
-        <h1>Додавання нової статті</h1>
+        <?php if ($_GET['action'] == 'edit') { ?>
+            <h1>Редагування статті</h1>
+        <?php } else if ($_GET['action'] == 'add') { ?>
+            <h1>Додавання нової статті</h1>
         <?php } ?>
         <br>
         <div class="row">
@@ -39,9 +39,13 @@
                     <label for="article_date">Дата</label>
                     <input value="<?= $article['date'] ?>" type="date" name="date" class="form-control" id="article_date">
                 </div>
+                <div class="form-group">
+                    <label for="article_author">Автор</label>
+                    <input value="<?= $article['id_author'] ?>" type="text" name="id_author" class="form-control" id="article_author">
+                </div>
                 <button type="submit" class="btn btn-primary">Зберегти</button>
             </form>
-    </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

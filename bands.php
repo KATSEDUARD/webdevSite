@@ -21,20 +21,20 @@
         <div class="menu" id="menu">
             <div class="row">
                 <div class="link-item col-lg-3 text-center">
-                    <a class="item-a" href="index.html">HOME</a>
+                    <a class="item-a" href="index.php">HOME</a>
                 </div>
                 <div class="link-item col-lg-3 text-center">
                     <div class="dropdown">
-                        <a onclick='window.location.href = "bands.html"' class="dropdown-toggle item-a"
+                        <a onclick='window.location.href = "bands.php"' class="dropdown-toggle item-a"
                             id="dropdownMenuButton" data-toggle="dropdown" onmouseover='mouseover_button(event)'
                             onmouseout='mouseout_button(event)'>BANDS</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
                             onmouseover='mouseover_menu(event)' onmouseout='mouseout_menu(event)'>
-                            <a class="dropdown-item" href="maiden.html">IRON MAIDEN</a>
+                            <a class="dropdown-item" href="maiden.php">IRON MAIDEN</a>
                             <a style="font-size: 25px !important; padding-bottom: 0 !important; padding-top: 0 !important;"
-                                class="dropdown-item" href="metallica.html">Metallic<span class='flip_H'>A</span></a>
-                            <a class="dropdown-item" href="megadeth.html">MEGADETH</a>
-                            <a class="dropdown-item" href="rammstein.html">RAMMSTEIN</a>
+                                class="dropdown-item" href="metallica.php">Metallic<span class='flip_H'>A</span></a>
+                            <a class="dropdown-item" href="megadeth.php">MEGADETH</a>
+                            <a class="dropdown-item" href="rammstein.php">RAMMSTEIN</a>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
         </div>
         <div class="row">
             <div class="col-sm-12 col-lg-3">
-                <a href="maiden.html">
+                <a href="maiden.php">
                     <div class="card">
                         <img class="card-img-top" src="images/iron_maiden/covers/the_number_of_the_beast.jpg">
                         <div class="card-body">
@@ -58,7 +58,7 @@
                 </a>
             </div>
             <div class="col-sm-12 col-lg-3">
-                <a href="metallica.html">
+                <a href="metallica.php">
                     <div class="card">
                         <img class="card-img-top" src="images/metallica/covers/master_of_puppets.jpg">
                         <div class="card-body">
@@ -68,7 +68,7 @@
                 </a>
             </div>
             <div class="col-sm-12 col-lg-3">
-                <a href="megadeth.html">
+                <a href="megadeth.php">
                     <div class="card">
                         <img class="card-img-top" src="images/megadeth/covers/rust_in_peace.jpg">
                         <div class="card-body">
@@ -78,7 +78,7 @@
                 </a>
             </div>
             <div class="col-sm-12 col-lg-3">
-                <a href="rammstein.html">
+                <a href="rammstein.php">
                     <div class="card">
                         <img class="card-img-top" src="images/rammstein/covers/sehnsucht.jpg">
                         <div class="card-body">

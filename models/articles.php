@@ -1,109 +1,102 @@
 <?php
 
-    function articles_all($link) {
-        $query = "SELECT * FROM articles ORDER BY id DESC";
-        $result = mysqli_query($link, $query);
+function articles_all($link)
+{
+    $query = "SELECT * FROM articles JOIN author ON author.id = articles.id_author ORDER BY articles.id DESC";
+    $result = mysqli_query($link, $query);
 
-        if(!$result) die("Error: ".mysqli_error($link));
+    if (!$result) die("Error: " . mysqli_error($link));
 
-        $n = mysqli_num_rows($result);
-        $articles = array();
+    $n = mysqli_num_rows($result);
+    $articles = array();
 
-        for($i = 0; $i < $n; $i++) {
-            $row = mysqli_fetch_assoc($result);
-            $articles[] = $row;
-        }
-
-        return $articles;
+    for ($i = 0; $i < $n; $i++) {
+        $row = mysqli_fetch_assoc($result);
+        $articles[] = $row;
     }
 
-    function articles_get($link, $id_article) {
-        $query = sprintf("SELECT * FROM articles WHERE id=%d", (int)$id_article);
+    return $articles;
+}
 
-        $result = mysqli_query($link, $query);
+function articles_get($link, $id_article)
+{
+    $query = sprintf("SELECT * FROM articles JOIN author ON author.id = articles.id_author WHERE articles.id=%d", (int)$id_article);
 
-        if(!$result) die("Error: ".mysqli_error($link));
+    $result = mysqli_query($link, $query);
 
-        $article = mysqli_fetch_assoc($result);
+    if (!$result) die("Error: " . mysqli_error($link));
 
-        return $article;
-    }
+    $article = mysqli_fetch_assoc($result);
 
-    function articles_new($link, $title, $date, $content, $image) {
-        $title = trim($title);
-        $content = trim($content);
-        $image = trim($image);
+    return $article;
+}
 
-        if($title == "") return false;
+function articles_new($link, $title, $date, $content, $image, $id_author)
+{
+    $title = trim($title);
+    $content = trim($content);
+    $image = trim($image);
+    $id_author = trim($id_author);
 
-        $t = "INSERT INTO articles (title, date, content, image) VALUES ('%s', '%s', '%s', '%s')";
+    if ($title == "") return false;
 
-        $query = sprintf($t, mysqli_real_escape_string($link, $title), mysqli_real_escape_string($link, $date), mysqli_real_escape_string($link, $content), mysqli_real_escape_string($link, $image));
+    $t = "INSERT INTO articles (title, date, content, image, id_author) VALUES ('%s', '%s', '%s', '%s', '%d')";
 
-        // echo $query;
-        $result = mysqli_query($link, $query);
+    $query = sprintf($t, mysqli_real_escape_string($link, $title), mysqli_real_escape_string($link, $date), mysqli_real_escape_string($link, $content), mysqli_real_escape_string($link, $image), mysqli_real_escape_string($link, $id_author));
 
-        if(!$result) die(mysqli_error($link));
+    // echo $query;
+    $result = mysqli_query($link, $query);
 
-        return true;
-    }
+    if (!$result) die(mysqli_error($link));
 
-    function articles_edit($link, $id, $title, $date, $content, $image) {
-        $title = trim($title);
-        $content = trim($content);
-        $image = trim($image);
-        $date = trim($date);
-        $id = (int)$id;
+    return true;
+}
 
-        if($title == "") return false;
+function articles_edit($link, $id, $title, $date, $content, $image, $id_author)
+{
+    $title = trim($title);
+    $content = trim($content);
+    $image = trim($image);
+    $date = trim($date);
+    $id_author = trim($id_author);
+    $id = (int)$id;
 
-        $sql = "UPDATE articles SET title='%s', content='%s', image='%s', date='%s' WHERE id='%d'";
+    if ($title == "") return false;
 
-        $query = sprintf($sql, mysqli_real_escape_string($link, $title), mysqli_real_escape_string($link, $content),
-        mysqli_real_escape_string($link, $image), mysqli_real_escape_string($link, $date), mysqli_real_escape_string($link, $id));
+    $sql = "UPDATE articles SET title='%s', content='%s', image='%s', date='%s', id_author='%d' WHERE id='%d'";
 
-        $result = mysqli_query($link, $query);
+    $query = sprintf(
+        $sql,
+        mysqli_real_escape_string($link, $title),
+        mysqli_real_escape_string($link, $content),
+        mysqli_real_escape_string($link, $image),
+        mysqli_real_escape_string($link, $date),
+        mysqli_real_escape_string($link, $id_author),
+        mysqli_real_escape_string($link, $id)
+    );
 
-        if(!$result) die(mysqli_error($link));
+    $result = mysqli_query($link, $query);
 
-        return mysqli_affected_rows($link);
-    }
+    if (!$result) die(mysqli_error($link));
 
-    function articles_delete($link, $id) {
-        $id = (int)$id;
+    return mysqli_affected_rows($link);
+}
 
-        if($id == 0) return false;
+function articles_delete($link, $id)
+{
+    $id = (int)$id;
 
-        $query = sprintf("DELETE FROM articles WHERE id='%d'", mysqli_real_escape_string($link, $id));
-        $result = mysqli_query($link, $query);
+    if ($id == 0) return false;
 
-        if(!$result) die(mysqli_error($link));
+    $query = sprintf("DELETE FROM articles WHERE id='%d'", mysqli_real_escape_string($link, $id));
+    $result = mysqli_query($link, $query);
 
-        return mysqli_affected_rows($link);
-    }
+    if (!$result) die(mysqli_error($link));
 
-    function articles_intro($text, $len = 200) {
-        return mb_substr($text, 0, $len);
-    }
+    return mysqli_affected_rows($link);
+}
 
-    // function articles_search($link, $title) {
-    //     $title = trim($title);
-    //     $query = "SELECT * FROM articles WHERE title LIKE'%$title%' OR `name` LIKE'%$title%'";
-
-    //     $result = mysqli_query($link, $query);
-
-    //     if(!$result) die("Error: ".mysqli_error($link));
-
-    //     $articles = array();
-
-    //     $n = mysqli_num_rows($result);
-
-    //     for($i = 0; $i < $n; $i++) {
-    //         $row = mysqli_fetch_assoc($result);
-    //         $articles[] = $row;
-    //     }
-
-    //     return $articles;
-    // }
-
-?>
+function articles_intro($text, $len = 200)
+{
+    return mb_substr($text, 0, $len);
+}

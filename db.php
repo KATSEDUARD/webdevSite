@@ -1,8 +1,8 @@
 <?php
 
     define("MYSQL_SERVER", "localhost");
-    define("MYSQL_USER", "root");
-    define("MYSQL_PASSWORD", "");
+    define("MYSQL_USER", "mysql");
+    define("MYSQL_PASSWORD", "mysql");
     define("MYSQL_DB", "metal_db");
 
     function db_connect() {
