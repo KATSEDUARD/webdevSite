@@ -74,6 +74,7 @@
           </div>
         <?php
         }
+        include('views/language.php');
         ?>
       </div>
     </div>

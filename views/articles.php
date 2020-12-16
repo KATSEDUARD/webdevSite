@@ -58,6 +58,9 @@ if ($_GET["show"] == 'all') {
                 </div>
             </div>
         </div>
+        <?php
+        include('views/language.php');
+        ?>
         <form action="news.php" method="post" style="margin-top: 50px;">
             <label for="article_title">Пошук</label>
             <input type="text" name="title_search" class="form-control" id="article_title">

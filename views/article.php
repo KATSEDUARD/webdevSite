@@ -52,6 +52,9 @@
                         </div>
                     </div>
                 </div>
+                <?php
+                include('views/language.php');
+                ?>
             </div>
         </div>
     </div>
