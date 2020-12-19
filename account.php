@@ -1,31 +1,8 @@
 <?php
-        require('db.php');
-        $link = db_connect();
-        if (isset($_POST['name']) && isset($_POST['surname']) && isset($_POST['email'])
-        && isset($_POST['password'])) {
-          $name = trim($_POST['name']);
-          $surname = trim($_POST['surname']);
-          $email = trim($_POST['email']);
-          $phone = trim($_POST['phone']);
-          $password = trim($_POST['password']);
-
-          $query = "INSERT INTO user_data (phone, email, password) VALUES ('$phone', '$email', '$password');";
-          
-          $query .= "INSERT INTO `user` (`name`, `surname`, `id_data`) VALUES ('$name', '$surname', LAST_INSERT_ID());";
-
-          $result = mysqli_multi_query($link, $query);
-
-          if($result) {
-            $smsg = "Registration complete";
-          }
-          else {
-            $fsmsg = "Error occurred";
-          }
-        }
+  session_start();
 ?>
 <!doctype html>
 <html lang="en">
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -68,51 +45,25 @@
           </div>
         </div>
         <div id="content-wrapper" style="margin-top: 70px !important;" class="content-wrapper">
-          <form action="account.php" method="POST">
-            <h3 align="center">Sign Up</h3>
-            <?php
-              if(isset($smsg)) { ?> <div class="alert alert-success" role="alert"><?= $smsg ?></div>
-                <?
+        <?php
+          if(isset($_SESSION['logged_user'])) {
+            include("views/user_info.php");
+          }
+          else {
+            if(isset($_GET["page"])) {
+              if($_GET["page"] == "login") {
+                include("views/login.php");
               }
-              ?>
-              <?php
-              if(isset($fsmsg)) { ?> <div class="alert alert-danger" role="alert"><?= $fsmsg ?></div>
-                <?
+              else if($_GET["page"] == "signup") {
+                include("views/signup.php");
               }
-              ?>
-            <div class="form-group">
-              <label for="namefield">Name</label>
-              <input autocomplete="off" type="text" name="name" class="form-control" required placeholder="Name" id="namefield">
-            </div>
-            <div class="form-group">
-              <label for="surnamefield">Surname</label>
-              <input autocomplete="off" type="text" name="surname" class="form-control" required placeholder="Surname" id="surnamefield">
-            </div>
-            <div class="form-group">
-              <label for="phonefield">Phone (not required)</label>
-              <input autocomplete="off" type="phone" name="phone" class="form-control" placeholder="Phone" id="surnamefield">
-            </div>
-            <div class="form-group">
-              <label for="emailfield">Email</label>
-              <input type="email" name="email" class="form-control" id="emailfield" required placeholder="example@mail.com">
-            </div>
-            <div class="form-group">
-              <label for="passwordfield">Password</label>
-              <input autocomplete="off" type="password" name="password" class="form-control" required placeholder="password" id="passwordfield">
-            </div>
-            <!-- <div class="form-group form-check">
-                <label class="form-check-label" for="datefield">Оберіть свою дату народження</label>
-                <br>
-                <input type="date" name="birthday" class="form-check-input" id="datefield">
-                <br>
-                <br>
-              </div> -->
-            <button type="submit" class="btn btn-primary">Sign Up</button>
-            <div class="btn-info btn" style="margin-left: 25px;">Sign In</div>
-          </form>
+            }
+            else include("views/login.php");
+          }
+        ?>
         </div>
         <?php
-        }
+        
         include('views/language.php');
         ?>
       </div>

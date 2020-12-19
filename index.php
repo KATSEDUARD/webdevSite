@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!doctype html>
 <html lang="en">
 
@@ -88,7 +89,7 @@
                 break;
 
               case 'ukr':
-                echo '<h3 style="font-weight: 300; font-family: Cuprum, sans-serif;">ДОБРО ПОЖАЛОВАТЬ</h3>
+                echo '<h3 style="font-weight: 300; font-family: Cuprum, sans-serif;">Ласкаво просимо</h3>
                 <p>Метал – це музичний жанр,
                 різновид року, що почав формуватися у 70-х роках
                 минулого століття.</p>
@@ -109,7 +110,7 @@
                 break;
             }
           } else {
-            echo '<h3 style="font-weight: 300; font-family: Cuprum, sans-serif;">ДОБРО ПОЖАЛОВАТЬ</h3>
+            echo '<h3 style="font-weight: 300; font-family: Cuprum, sans-serif;">Ласкаво просимо</h3>
                 <p>Метал – це музичний жанр,
                 різновид року, що почав формуватися у 70-х роках
                 минулого століття.</p>

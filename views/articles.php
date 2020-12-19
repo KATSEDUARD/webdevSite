@@ -1,4 +1,5 @@
 <?php
+session_start();
 ini_set('error_reporting', 0);
 ini_set('display_errors', 0);
 
@@ -8,6 +9,7 @@ $n = 0;
 
 if ($_POST) {
     $a = $_POST['title_search'];
+    setcookie("Query", $a, time() + 5);
 } else {
     $a = null;
 }
@@ -74,7 +76,6 @@ if ($_GET["show"] == 'all') {
             <?php
 
             $sql = "SELECT * FROM articles JOIN author ON author.id = articles.id_author WHERE title LIKE'%$a%' ORDER BY articles.id DESC";
-
             $r = mysqli_query($link, $sql);
 
             while ($article = mysqli_fetch_array($r)) { ?>
