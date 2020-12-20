@@ -1,6 +1,8 @@
+<?php
+  session_start();
+?>
 <!doctype html>
 <html lang="en">
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -42,38 +44,26 @@
             </div>
           </div>
         </div>
+        <div id="content-wrapper" style="margin-top: 70px !important;" class="content-wrapper">
         <?php
-        $name = $_POST["name"];
-        $surname = $_POST["surname"];
-        $birthday = $_POST["birthday"];
-
-        if (!empty($name) && !empty($surname) && !empty($birthday)) {
-          echo "Вітаємо, " . $name . " " . $surname . "!<br>";
-          echo "Дата народження: " . $birthday;
-        } else {
+          if(isset($_SESSION['logged_user'])) {
+            include("views/user_info.php");
+          }
+          else {
+            if(isset($_GET["page"])) {
+              if($_GET["page"] == "login") {
+                include("views/login.php");
+              }
+              else if($_GET["page"] == "signup") {
+                include("views/signup.php");
+              }
+            }
+            else include("views/login.php");
+          }
         ?>
-          <div id="content-wrapper" class="content-wrapper">
-            <form action="account.php" method="POST">
-              <div class="form-group">
-                <label for="namefield">Ім'я</label>
-                <input autocomplete="off" type="text" name="name" class="form-control" id="namefield">
-              </div>
-              <div class="form-group">
-                <label for="surnamefield">Прізвище</label>
-                <input autocomplete="off" type="text" name="surname" class="form-control" id="surnamefield">
-              </div>
-              <div class="form-group form-check">
-                <label class="form-check-label" for="datefield">Оберіть свою дату народження</label>
-                <br>
-                <input type="date" name="birthday" class="form-check-input" id="datefield">
-                <br>
-                <br>
-              </div>
-              <button type="submit" class="btn btn-primary">Відправити</button>
-            </form>
-          </div>
+        </div>
         <?php
-        }
+        
         include('views/language.php');
         ?>
       </div>
