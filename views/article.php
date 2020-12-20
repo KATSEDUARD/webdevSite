@@ -1,4 +1,12 @@
-<?php session_start() ?>
+<?php
+session_start();
+
+if (isset($_GET)) {
+  $a = $_GET['lang'];
+  setcookie('lang_cookie', $a, time() + 10);
+}
+
+?>
 <!doctype html>
 <html lang="en">
 

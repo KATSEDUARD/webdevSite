@@ -1,4 +1,12 @@
-<?php session_start() ?>
+<?php
+session_start();
+
+if (isset($_GET)) {
+  $a = $_GET['lang'];
+  setcookie('lang_cookie', $a, time() + 10);
+}
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -45,8 +53,8 @@
         </div>
         <div id="content-wrapper" class="content-wrapper">
           <?php
-          if (isset($_GET['lang'])) {
-            switch ($_GET['lang']) {
+          if (isset($_COOKIE['lang_cookie'])) {
+            switch ($_COOKIE['lang_cookie']) {
               case 'rus':
                 echo '<h3 style="font-weight: 300; font-family: Cuprum, sans-serif;">ДОБРО ПОЖАЛОВАТЬ</h3>
                 <p>Металл - это музыкальный жанр,
