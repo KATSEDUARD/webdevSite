@@ -9,20 +9,14 @@ $n = 0;
 
 if ($_POST) {
     $a = $_POST['title_search'];
+    setcookie("Query", $a, time() + 10);
 } else {
     $a = null;
 }
 
 if ($_GET["show"] == 'all') {
-    $a = null;
     $sql = "SELECT * FROM articles ORDER BY id DESC";
 }
-
-if (isset($_GET)) {
-  $l = $_GET['lang'];
-  setcookie('lang_cookie', $l, time() + 10);
-}
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -71,7 +65,7 @@ if (isset($_GET)) {
         ?>
         <form action="news.php" method="post" style="margin-top: 50px;">
             <label for="article_title">Пошук</label>
-            <input type="text" name="title_search" placeholder="Пошук" class="form-control" id="article_title">
+            <input type="text" name="title_search" placeholder="Пошук" value="<?=$_COOKIE["Query"]?>" class="form-control" id="article_title">
             <br>
             <input type="submit" class="btn btn-primary" id="search" value='Шукати'>
         </form>
@@ -80,7 +74,13 @@ if (isset($_GET)) {
         </form>
         <div class="row">
             <?php
+            if(isset($_COOKIE["Query"])) {
+                $last_query = $_COOKIE["Query"];
+                $sql = "SELECT * FROM articles JOIN author ON author.id = articles.id_author WHERE title LIKE '%$last_query%' ORDER BY articles.id DESC";
+            }
+            else {
                 $sql = "SELECT * FROM articles JOIN author ON author.id = articles.id_author WHERE title LIKE'%$a%' ORDER BY articles.id DESC";
+            }
             
             $r = mysqli_query($link, $sql);
 
