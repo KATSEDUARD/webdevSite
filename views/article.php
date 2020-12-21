@@ -1,11 +1,5 @@
 <?php
 session_start();
-
-if (isset($_GET)) {
-  $a = $_GET['lang'];
-  setcookie('lang_cookie', $a, time() + 10);
-}
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -61,9 +55,6 @@ if (isset($_GET)) {
                         </div>
                     </div>
                 </div>
-                <?php
-                include('views/language.php');
-                ?>
             </div>
         </div>
     </div>

@@ -1,14 +1,9 @@
 <?php
 session_start();
-
-if (isset($_GET)) {
-  $a = $_GET['lang'];
-  setcookie('lang_cookie', $a, time() + 10);
-}
-
 ?>
 <!doctype html>
 <html lang="en">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -51,27 +46,20 @@ if (isset($_GET)) {
           </div>
         </div>
         <div id="content-wrapper" style="margin-top: 70px !important;" class="content-wrapper">
-        <?php
-          if(isset($_SESSION['logged_user'])) {
+          <?php
+          if (isset($_SESSION['logged_user'])) {
             include("views/user_info.php");
-          }
-          else {
-            if(isset($_GET["page"])) {
-              if($_GET["page"] == "login") {
+          } else {
+            if (isset($_GET["page"])) {
+              if ($_GET["page"] == "login") {
                 include("views/login.php");
-              }
-              else if($_GET["page"] == "signup") {
+              } else if ($_GET["page"] == "signup") {
                 include("views/signup.php");
               }
-            }
-            else include("views/login.php");
+            } else include("views/login.php");
           }
-        ?>
+          ?>
         </div>
-        <?php
-        
-        include('views/language.php');
-        ?>
       </div>
     </div>
   </div>

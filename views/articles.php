@@ -60,9 +60,6 @@ if ($_GET["show"] == 'all') {
                 </div>
             </div>
         </div>
-        <?php
-        include('views/language.php');
-        ?>
         <form action="news.php" method="post" style="margin-top: 50px;">
             <label for="article_title">Пошук</label>
             <input type="text" name="title_search" placeholder="Пошук" value="<?=$_COOKIE["Query"]?>" class="form-control" id="article_title">
@@ -74,14 +71,8 @@ if ($_GET["show"] == 'all') {
         </form>
         <div class="row">
             <?php
-            if(isset($_COOKIE["Query"])) {
-                $last_query = $_COOKIE["Query"];
-                $sql = "SELECT * FROM articles JOIN author ON author.id = articles.id_author WHERE title LIKE '%$last_query%' ORDER BY articles.id DESC";
-            }
-            else {
-                $sql = "SELECT * FROM articles JOIN author ON author.id = articles.id_author WHERE title LIKE'%$a%' ORDER BY articles.id DESC";
-            }
-            
+            $sql = "SELECT * FROM articles JOIN author ON author.id = articles.id_author WHERE title LIKE'%$a%' ORDER BY articles.id DESC";
+
             $r = mysqli_query($link, $sql);
 
             while ($article = mysqli_fetch_array($r)) { ?>

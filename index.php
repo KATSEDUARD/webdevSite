@@ -1,9 +1,11 @@
 <?php
 session_start();
 
-if (isset($_GET)) {
-  $a = $_GET['lang'];
-  setcookie('lang_cookie', $a, time() + 10);
+if (!isset($_COOKIE['lang_cookie'])) {
+  if (isset($_GET['lang'])) {
+    $l = $_GET['lang'];
+    setcookie('lang_cookie', $l, time() + 10, "/");
+  }
 }
 
 ?>
