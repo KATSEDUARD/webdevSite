@@ -2,7 +2,7 @@
 
 function articles_all($link)
 {
-    $query = "SELECT * FROM articles JOIN author ON author.id = articles.id_author ORDER BY articles.id DESC";
+    $query = "SELECT * FROM articles ORDER BY id DESC";
     $result = mysqli_query($link, $query);
 
     if (!$result) die("Error: " . mysqli_error($link));
@@ -20,7 +20,7 @@ function articles_all($link)
 
 function articles_get($link, $id_article)
 {
-    $query = sprintf("SELECT * FROM articles JOIN author ON author.id = articles.id_author WHERE articles.id=%d", (int)$id_article);
+    $query = sprintf("SELECT * FROM articles JOIN author ON articles.id_author = author.id WHERE articles.id=%d", (int)$id_article);
 
     $result = mysqli_query($link, $query);
 
