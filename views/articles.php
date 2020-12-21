@@ -9,15 +9,14 @@ $n = 0;
 
 if ($_POST) {
     $a = $_POST['title_search'];
+    setcookie("Query", $a, time() + 10);
 } else {
     $a = null;
 }
 
 if ($_GET["show"] == 'all') {
-    $a = null;
     $sql = "SELECT * FROM articles ORDER BY id DESC";
 }
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -63,7 +62,7 @@ if ($_GET["show"] == 'all') {
         </div>
         <form action="news.php" method="post" style="margin-top: 50px;">
             <label for="article_title">Пошук</label>
-            <input type="text" name="title_search" placeholder="Пошук" class="form-control" id="article_title">
+            <input type="text" name="title_search" placeholder="Пошук" value="<?=$_COOKIE["Query"]?>" class="form-control" id="article_title">
             <br>
             <input type="submit" class="btn btn-primary" id="search" value='Шукати'>
         </form>
@@ -72,7 +71,7 @@ if ($_GET["show"] == 'all') {
         </form>
         <div class="row">
             <?php
-            $sql = "SELECT * FROM articles JOIN author ON author.id = articles.id_author WHERE title LIKE'%$a%' ORDER BY articles.id DESC";
+            $sql = "SELECT * FROM articles WHERE title LIKE'%$a%' ORDER BY id DESC";
 
             $r = mysqli_query($link, $sql);
 
@@ -86,7 +85,6 @@ if ($_GET["show"] == 'all') {
                                 <h3><b><?= $article['title'] ?></b></h3>
                                 <p style="margin-top: 50px; font-size: 18px;"><?= articles_intro($article['content']) ?>...</p>
                                 <p style="color: grey; font-size: 15px; margin-top: 25px;"><?= $article['date'] ?></p>
-                                <p style="color: grey; font-size: 15px; margin-top: 25px;">Автор: <?= $article['surname'] ?> <?= $article['name'] ?></p>
                                 <a href="../article.php?id=<?= $article['id'] ?>">Перейти до статті</a>
                             </div>
                         </div>
