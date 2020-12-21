@@ -18,11 +18,6 @@ if ($_GET["show"] == 'all') {
     $sql = "SELECT * FROM articles ORDER BY id DESC";
 }
 
-if (isset($_GET)) {
-  $l = $_GET['lang'];
-  setcookie('lang_cookie', $l, time() + 10);
-}
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -66,9 +61,6 @@ if (isset($_GET)) {
                 </div>
             </div>
         </div>
-        <?php
-        include('views/language.php');
-        ?>
         <form action="news.php" method="post" style="margin-top: 50px;">
             <label for="article_title">Пошук</label>
             <input type="text" name="title_search" placeholder="Пошук" class="form-control" id="article_title">
@@ -80,8 +72,8 @@ if (isset($_GET)) {
         </form>
         <div class="row">
             <?php
-                $sql = "SELECT * FROM articles JOIN author ON author.id = articles.id_author WHERE title LIKE'%$a%' ORDER BY articles.id DESC";
-            
+            $sql = "SELECT * FROM articles JOIN author ON author.id = articles.id_author WHERE title LIKE'%$a%' ORDER BY articles.id DESC";
+
             $r = mysqli_query($link, $sql);
 
             while ($article = mysqli_fetch_array($r)) { ?>
