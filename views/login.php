@@ -7,7 +7,7 @@
           $password = $_POST['password'];
 
 
-          $query = "SELECT user.name, user.surname, user_data.email, user_data.phone, user_data.password FROM `user` INNER JOIN `user_data` ON `id_data`=user_data.id WHERE user_data.email='$email' AND user_data.password='$password'";
+          $query = "SELECT user.id, user.name, user.surname, user_data.email, user_data.phone, user_data.password FROM `user` INNER JOIN `user_data` ON `id_data`=user_data.id WHERE user_data.email='$email' AND user_data.password='$password'";
           
 
           $result = mysqli_query($link, $query) or die(mysqli_error($link));

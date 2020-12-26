@@ -216,3 +216,33 @@ span{ display: inline-block;}
     bottom: 10px;
     right: 10px;
 }
+
+.like {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin-right: 5px;
+    font-size: 14px;
+    color: grey;
+    transition: all ease 0.3s;
+    background: transparent;
+    border: none;
+    outline: none !important;
+}
+
+.like:hover {
+    color: red;
+}
+
+.liked {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin-right: 5px;
+    font-size: 14px;
+    color: red;
+    transition: all ease 0.3s;
+    background: transparent;
+    border: none;
+    outline: none !important;
+}

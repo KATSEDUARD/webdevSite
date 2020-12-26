@@ -31,6 +31,7 @@ if ($_GET["show"] == 'all') {
     <link rel="icon" href="images/common/favicon.png" type="image/png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cuprum&display=swap">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
 <body>
@@ -62,7 +63,7 @@ if ($_GET["show"] == 'all') {
         </div>
         <form action="news.php" method="post" style="margin-top: 50px;">
             <label for="article_title">Пошук</label>
-            <input type="text" name="title_search" placeholder="Пошук" value="<?=$_COOKIE["Query"]?>" class="form-control" id="article_title">
+            <input type="text" name="title_search" placeholder="Пошук" value="<?= $_COOKIE["Query"] ?>" class="form-control" id="article_title">
             <br>
             <input type="submit" class="btn btn-primary" id="search" value='Шукати'>
         </form>
@@ -71,11 +72,12 @@ if ($_GET["show"] == 'all') {
         </form>
         <div class="row">
             <?php
-            $sql = "SELECT * FROM articles WHERE title LIKE'%$a%' ORDER BY id DESC";
-
+            $sql = "SELECT articles.*, COUNT(likes.id) FROM articles LEFT JOIN likes ON articles.id = likes.id_article WHERE articles.title LIKE'%$a%' GROUP BY articles.id ORDER BY articles.id DESC";
+            
             $r = mysqli_query($link, $sql);
 
-            while ($article = mysqli_fetch_array($r)) { ?>
+            while ($article = mysqli_fetch_array($r)) {
+            ?>
 
                 <div class="col-sm-12" style="margin-top: 20px;">
                     <div class="row">
@@ -85,6 +87,16 @@ if ($_GET["show"] == 'all') {
                                 <h3><b><?= $article['title'] ?></b></h3>
                                 <p style="margin-top: 50px; font-size: 18px;"><?= articles_intro($article['content']) ?>...</p>
                                 <p style="color: grey; font-size: 15px; margin-top: 25px;"><?= $article['date'] ?></p>
+                                <?php
+                                if (isset($_SESSION['logged_user'])) {
+                                ?>
+                                    <button class="like_button like" data-id="<?= $article['id'] ?>" data-status="like"><i class="far fa-heart"></i></button>
+                                    <span style="font-size: 17px;"><?= $article['COUNT(likes.id)'] ?></span>
+                                <?php
+                                }
+                                ?>
+                                <br>
+                                <br>
                                 <a href="../article.php?id=<?= $article['id'] ?>">Перейти до статті</a>
                             </div>
                         </div>
@@ -111,10 +123,11 @@ if ($_GET["show"] == 'all') {
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
     </script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
-    <!-- <script src="js/description.js"></script> -->
+    <script src="js/ajax.js"></script>
+    <script src="js/ajax_query.js"></script>
     <script src="js/initbt.js"></script>
     <script src="js/fonts.js"></script>
+    <script src="https://kit.fontawesome.com/5c78eed0ca.js" crossorigin="anonymous"></script>
 
 </body>
 

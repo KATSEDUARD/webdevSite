@@ -5,4 +5,4 @@
 <p>Phone: <?= $_SESSION["logged_user"]["phone"] ?></p>
 <p>Email: <?= $_SESSION["logged_user"]["email"] ?></p>
 <br>
-<a href='views/logout.php' class='btn btn-primary'>Log Out</a>
+<a href='views/logout.php' onclick="localStorage.clear()" class='btn btn-primary'>Log Out</a>
